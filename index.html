@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DorkFlow downloaden voor Mac</title>
+    <meta
+      name="description"
+      content="Download DorkFlow voor je Mac — spraak naar tekst, lokaal en privé. In één klik geïnstalleerd."
+    />
+    <!--
+      Eén-knop downloadpagina voor niet-technische collega's.
+      Statisch — werkt op GitHub Pages. Hosten:
+        1. Kopieer dit bestand (en de map landing/assets met screenshots) naar de
+           publieke repo mpjderksen/DorkFlow-releases (root of /docs).
+        2. Repo → Settings → Pages → Deploy from branch (root of /docs) → Save.
+        3. Pagina komt op https://mpjderksen.github.io/DorkFlow-releases/
+      De downloadknop wijst naar een VASTE bestandsnaam (DorkFlow.dmg) die de release-
+      pipeline meepubliceert, dus deze pagina hoeft nooit per release aangepast.
+    -->
+    <style>
+      :root {
+        --bg: #f6f7f4;
+        --card: #ffffff;
+        --ink: #1f2a24;
+        --muted: #5d6b62;
+        --accent: #5b8c6e;
+        --accent-dark: #3f6b51;
+        --border: #e4e8e1;
+        --shadow: 0 1px 2px rgba(31, 42, 36, 0.06),
+          0 8px 24px rgba(31, 42, 36, 0.08);
+        --radius: 16px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #141815;
+          --card: #1c221e;
+          --ink: #eef2ec;
+          --muted: #a6b3aa;
+          --accent: #7bb893;
+          --accent-dark: #5b8c6e;
+          --border: #2a322c;
+          --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        line-height: 1.55;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 48px 20px 80px;
+      }
+      header.hero {
+        text-align: center;
+        padding: 24px 0 8px;
+      }
+      .logo {
+        font-size: 40px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin: 0;
+      }
+      .logo .dot {
+        color: var(--accent);
+      }
+      .tagline {
+        color: var(--muted);
+        font-size: 18px;
+        margin: 8px auto 0;
+        max-width: 28em;
+      }
+      .download-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 32px 28px;
+        text-align: center;
+        margin: 32px 0;
+      }
+      .btn {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-size: 19px;
+        font-weight: 700;
+        padding: 16px 34px;
+        border-radius: 12px;
+        transition:
+          background 0.15s ease,
+          transform 0.05s ease;
+      }
+      .btn:hover {
+        background: var(--accent-dark);
+      }
+      .btn:active {
+        transform: translateY(1px);
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 14px;
+        margin-top: 14px;
+      }
+      .meta a {
+        color: var(--muted);
+      }
+      h2 {
+        font-size: 22px;
+        margin: 40px 0 16px;
+      }
+      .steps {
+        list-style: none;
+        counter-reset: step;
+        padding: 0;
+        margin: 0;
+      }
+      .steps li {
+        position: relative;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px 18px 16px 60px;
+        margin-bottom: 12px;
+      }
+      .steps li::before {
+        counter-increment: step;
+        content: counter(step);
+        position: absolute;
+        left: 16px;
+        top: 16px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+      }
+      .steps strong {
+        display: block;
+      }
+      .steps span {
+        color: var(--muted);
+        font-size: 15px;
+      }
+      kbd {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 1px 6px;
+        font-size: 0.92em;
+        font-family: inherit;
+      }
+      .callout {
+        background: color-mix(in srgb, var(--accent) 10%, var(--card));
+        border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
+        border-radius: 12px;
+        padding: 16px 18px;
+        font-size: 15px;
+        margin-top: 16px;
+      }
+      .callout strong {
+        color: var(--accent-dark);
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 56px;
+      }
+      .shot {
+        display: block;
+        max-width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="hero">
+        <h1 class="logo">DorkFlow<span class="dot">.</span></h1>
+        <p class="tagline">
+          Spraak naar tekst op je Mac. Lokaal en privé — niets gaat de cloud in.
+        </p>
+      </header>
+
+      <div class="download-card">
+        <a
+          class="btn"
+          id="download"
+          href="https://github.com/mpjderksen/DorkFlow-releases/releases/latest/download/DorkFlow.dmg"
+          >Download DorkFlow voor Mac</a
+        >
+        <p class="meta">
+          Voor Apple Silicon Mac (M1 of nieuwer) ·
+          <span id="version">nieuwste versie</span>
+        </p>
+        <p class="meta">
+          Lukt de download niet? Ga naar de
+          <a
+            href="https://github.com/mpjderksen/DorkFlow-releases/releases/latest"
+            >releases-pagina</a
+          >.
+        </p>
+      </div>
+
+      <h2>Zo installeer je het (1 keer)</h2>
+      <ol class="steps">
+        <li>
+          <strong>Open het gedownloade bestand</strong>
+          <span
+            >Dubbelklik <kbd>DorkFlow.dmg</kbd> in je map Downloads en sleep
+            <strong>DorkFlow</strong> naar de map <strong>Programma's</strong>.</span
+          >
+          <!-- Vervang later door een echte screenshot: -->
+          <!-- <img class="shot" src="assets/01-sleep-naar-programmas.png" alt="DorkFlow naar Programma's slepen" /> -->
+        </li>
+        <li>
+          <strong>Start DorkFlow uit je map Programma's</strong>
+          <span
+            >De eerste keer zegt macOS dat de app "niet geopend kan worden". Dat
+            is normaal voor een gratis app — klik op <kbd>Gereed</kbd>.</span
+          >
+        </li>
+        <li>
+          <strong>Geef toestemming via Systeeminstellingen</strong>
+          <span
+            >Open <strong>Systeeminstellingen → Privacy en beveiliging</strong>,
+            scrol naar onderen en klik bij DorkFlow op <kbd>Toch openen</kbd>.
+            Bevestig met je vingerafdruk of wachtwoord.</span
+          >
+          <!-- <img class="shot" src="assets/03-toch-openen.png" alt="Toch openen in Privacy en beveiliging" /> -->
+        </li>
+        <li>
+          <strong>Sta microfoon en toegankelijkheid toe</strong>
+          <span
+            >DorkFlow vraagt om de <strong>microfoon</strong> (om je te horen) en
+            <strong>toegankelijkheid</strong> (om de sneltoets te laten werken).
+            Klik beide keren op toestaan.</span
+          >
+        </li>
+        <li>
+          <strong>Klaar — kies je model en begin</strong>
+          <span
+            >Klik op de grote <strong>Download &amp; Start</strong>-knop. Klaar is
+            klaar: druk op je sneltoets en praat.</span
+          >
+        </li>
+      </ol>
+
+      <div class="callout">
+        <strong>Twee dingen om te weten.</strong> De eerste keer downloadt
+        DorkFlow eenmalig een taalmodel (~1,5 GB) — even geduld, dat hoeft maar
+        één keer. En vanaf nu komen updates <strong>vanzelf</strong> binnen: je
+        krijgt die "Toch openen"-melding nooit meer.
+      </div>
+
+      <footer>DorkFlow · gemaakt bij Paperdork</footer>
+    </div>
+
+    <script>
+      // Toon het nieuwste versienummer (en houd de downloadknop op de vaste
+      // /latest/download/DorkFlow.dmg-link, die altijd naar de laatste release wijst).
+      fetch(
+        "https://api.github.com/repos/mpjderksen/DorkFlow-releases/releases/latest",
+        { headers: { Accept: "application/vnd.github+json" } },
+      )
+        .then((r) => (r.ok ? r.json() : Promise.reject()))
+        .then((data) => {
+          if (data && data.tag_name) {
+            document.getElementById("version").textContent =
+              "nieuwste versie " + data.tag_name;
+          }
+        })
+        .catch(() => {
+          /* offline of API-limiet: laat de standaardtekst staan */
+        });
+    </script>
+  </body>
+</html>
